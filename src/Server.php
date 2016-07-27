@@ -1,4 +1,10 @@
 <?php
+/**
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
 
 namespace Swoole;
 /**
@@ -462,6 +468,23 @@ class Server
     {
     }
 
+	/**
+	 * 使当前worker进程停止运行，并立即触发onWorkerStop回调函数。
+	 * 使用此函数代替exit/die结束Worker进程的生命周期
+	 * 如果要结束其他Worker进程，可以使用swoole_process::kill($worker_pid)
+	 */
+    public function stop(){
+
+	}
+
+	/**
+	 * 获取最近一次操作错误的错误码。业务代码中可以根据错误码类型执行不同的逻辑。
+	 * @return int
+	 */
+	public function getLastError(){
+		return 1;
+	}
+
     /**
      * Swoole提供了swoole_server::addListener来增加监听的端口。业务代码中可以通过调用swoole_server::connection_info来获取某个连接来自于哪个端口
      *
@@ -522,23 +545,24 @@ class Server
      * $after_time_ms 最大不得超过 86400000
      * 此方法是swoole_timer_after函数的别名
      *
-     * @param $ms
      * @param int $after_time_ms
-     * @param mixed $callback_function
+     * @param callable $callback_function
      * @param mixed $param
      */
     public function after($after_time_ms, $callback_function, $param = null)
     {
     }
 
-    /*
-     * 增加监听端口，addlistener的别名
-     * @param $host
-     * @param $port
-     * @param $type
-     * @return bool
-     */
-    public function listen($host, $port, $type = SWOOLE_SOCK_TCP)
+	/**
+	 * 增加监听端口，addlistener的别名
+	 *
+	 * @param string $host
+	 * @param integer $port
+	 * @param int $type
+	 *
+	 * @return int
+	 */
+    public function listen( $host, $port, $type = SWOOLE_SOCK_TCP )
     {
     }
 
@@ -553,9 +577,9 @@ class Server
      *
      * 子进程会托管到Manager进程，如果发生致命错误，manager进程会重新创建一个
      *
-     * @param swoole_process $process
+     * @param \swoole_process $process
      */
-    public function addProcess(swoole_process $process)
+    public function addProcess(\swoole_process $process)
     {
     }
 
@@ -698,7 +722,9 @@ class Server
     }
 
     /**
-     * @param callable $callback
+	 * 延后执行一个PHP函数。Swoole底层会在EventLoop循环完成后执行此函数。此函数的目的是为了让一些PHP代码延后执行，程序优先处理IO事件。
+	 *
+     * @param callable $callback 为可执行的函数变量，可以是字符串、数组、匿名函数
      */
     public function defer(callable $callback)
     {
@@ -706,10 +732,13 @@ class Server
     }
 
     /**
+	 * 获取客户端信息
+	 *
      * @param int $fd
+     * @param int $from_id
      * @return bool | array
      */
-    function getClientInfo($fd)
+    function getClientInfo($fd,$from_id)
     {
 
     }

@@ -1,6 +1,16 @@
 <?php
+/**
+ * 所有常量定义
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
 
-define('SWOOLE_VERSION', '1.8.1'); //当前Swoole的版本号
+/**
+ * @constant swoole版本
+ */
+define('SWOOLE_VERSION', '1.8.7'); //当前Swoole的版本号
 
 define('HTTP_GLOBAL_ALL', 1);
 define('HTTP_GLOBAL_GET', 2);
@@ -13,7 +23,6 @@ define('HTTP_GLOBAL_COOKIE', 8);
 define('SWOOLE_BASE', 1); //使用Base模式，业务代码在Reactor中直接执行
 define('SWOOLE_THREAD', 2); //使用线程模式，业务代码在Worker线程中执行
 define('SWOOLE_PROCESS', 3); //使用进程模式，业务代码在Worker进程中执行
-define('SWOOLE_PACKET', 0x10);
 
 /**
  * new swoole_client 构造函数参数
@@ -53,6 +62,9 @@ define('SWOOLE_SEM', 4); //创建信号量
 
 define('SWOOLE_EVENT_WRITE', 1);
 define('SWOOLE_EVENT_READ', 2);
+
+define('SWOOLE_AIO_BASE',0);
+define('SWOOLE_AIO_LINUX',1);
 
 define('SWOOLE_SSLv3_METHOD', 1);
 define('SWOOLE_SSLv3_SERVER_METHOD', 1);

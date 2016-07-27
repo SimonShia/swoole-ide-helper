@@ -1,9 +1,9 @@
 <?php
 /**
- * swoole-ide-helper.
- *
- * Author: wudi <wudi23@baidu.com>
- * Date: 2016/02/17
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
  */
 
 namespace Swoole;
@@ -39,6 +39,14 @@ class Timer
     {
 
     }
+
+	/**
+	 * 判断timer是否存在
+	 * @param $timer_id
+	 */
+    static function exists($timer_id){
+
+	}
 
     /**
      * 使用定时器ID来删除定时器

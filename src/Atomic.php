@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * 原子计数操作类，可以方便整数的无锁原子增减。
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
 namespace Swoole;
 
 /**
@@ -13,6 +19,7 @@ namespace Swoole;
 class Atomic
 {
     /**
+	 * 构造函数
      * @param int $init_value
      */
     public function __construct($init_value)
@@ -39,8 +46,9 @@ class Atomic
     {
     }
 
-    /*
+    /**
      * 获取当前计数的值
+     *
      * @return int
      */
     public function get()

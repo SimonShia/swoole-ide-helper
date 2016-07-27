@@ -1,4 +1,10 @@
 <?php
+/**
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
 
 namespace Swoole\Http;
 
@@ -8,15 +14,31 @@ namespace Swoole\Http;
  * Author: EagleWu <eaglewudi@gmail.com>
  * Date: 2016/02/17
  */
+/**
+ * Class Client
+ *
+ * @package Swoole\Http
+ */
 class Client
 {
 
-    public $setting;
+	/**
+	 * 设置
+	 *
+	 * @var
+	 */
+	public $setting;
 
-    public $set_headers;
+	/**
+	 * 头部信息
+	 *
+	 * @var
+	 */
+	public $set_headers;
 
     /**
      * swoole_http_client constructor.
+	 *
      * @param string $host
      * @param integer $port
      */
@@ -26,6 +48,8 @@ class Client
     }
 
     /**
+	 * 设置入口
+	 *
      * @param $setting
      * @return true
      */
@@ -33,7 +57,18 @@ class Client
     {
     }
 
+	/**
+	 * 设置请求方法
+	 *
+	 * @param $method
+	 */
+	public function setMethod( $method ) {
+
+    }
+
     /**
+	 * 设置请求头
+	 *
      * @param $headers
      * @return true
      */
@@ -42,7 +77,18 @@ class Client
 
     }
 
+	/**
+	 * 设置cookies
+	 *
+	 * @param $cookies
+	 */
+    public function setCookies($cookies){
+
+	}
+
     /**
+	 * 设置发送数据
+	 *
      * @param $data
      * @return true
      */
@@ -52,6 +98,8 @@ class Client
     }
 
     /**
+	 * 执行
+	 *
      * @param string $uri
      * @param mixed $finish
      * @return bool
@@ -62,6 +110,8 @@ class Client
     }
 
     /**
+	 * 推送websocket数据
+	 *
      * @param $data
      * @param int $opcode
      * @param int $fin
@@ -72,6 +122,8 @@ class Client
     }
 
     /**
+	 * 是否已经连接
+	 *
      * @return boolean
      */
     public function isConnected()
@@ -80,6 +132,8 @@ class Client
     }
 
     /**
+	 * 关闭连接
+	 *
      * @return bool
      */
     public function close()
@@ -88,6 +142,8 @@ class Client
     }
 
     /**
+	 * 注册事件
+	 *
      * @param string $name
      * @param mixed $callback
      */
@@ -97,6 +153,8 @@ class Client
     }
 
     /**
+	 * get请求
+	 *
      * @param string $uri
      * @param mixed $finish
      */
@@ -106,6 +164,8 @@ class Client
     }
 
     /**
+	 * post请求
+	 *
      * @param string $uri
      * @param mixed $post
      * @param mixed $finish
@@ -116,6 +176,8 @@ class Client
     }
 
     /**
+	 * 发起WebSocket握手请求，并将连接升级为WebSocket。
+	 *
      * @param string $uri
      * @param mixed $finish
      */
@@ -124,7 +186,10 @@ class Client
 
     }
 
-    public function __destruct()
+	/**
+	 * 析构函数
+	 */
+	public function __destruct()
     {
 
     }

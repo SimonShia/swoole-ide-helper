@@ -1,4 +1,10 @@
 <?php
+/**
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
 namespace Swoole\Http;
 /**
  * Http响应对象
@@ -66,10 +72,17 @@ class Response
 
     /**
      * 发送静态文件
-     * @param string $level
+     * @param string $filename
      */
     function sendfile($filename)
     {
 
     }
+
+	/**
+	 * 析构函数
+	 */
+    public function __destruct() {
+
+	}
 }

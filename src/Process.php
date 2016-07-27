@@ -1,4 +1,11 @@
 <?php
+/**
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
+
 namespace Swoole;
 
 /**
@@ -24,6 +31,8 @@ class Process
     public $pipe;
 
     /**
+	 * 构造函数
+	 *
      * @param mixed $callback 子进程的回调函数
      * @param bool $redirect_stdin_stdout 是否重定向标准输入输出
      * @param bool $create_pipe 是否创建管道
@@ -102,6 +111,17 @@ class Process
     {
 
     }
+
+	/**
+	 * 查看消息队列状态。
+	 * 返回一个数组，包括2项信息
+	 * queue_num 队列中的任务数量
+	 * queue_bytes 队列数据的总字节数
+	 * @since 1.8.6
+	 */
+    function statQueue(){
+
+	}
 
     /**
      * 向消息队列推送数据

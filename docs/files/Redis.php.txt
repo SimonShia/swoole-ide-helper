@@ -1,4 +1,11 @@
 <?php
+/**
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
+
 namespace Swoole;
 /**
  * 异步Redis客户端
@@ -33,20 +40,13 @@ class Redis
     {
     }
 
-    /**
-     * 获取KEY值
-     * @param $key
-     */
-    public function get()
-    {
-    }
+	/**
+	 * __call magic function
+	 *
+	 * @param $command
+	 * @param $params
+	 */
+    function __call($command,$params){
 
-    /**
-     * 将当前值设置为指定的数字
-     *
-     * @param $value
-     */
-    public function set($value)
-    {
-    }
+	}
 }

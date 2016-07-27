@@ -1,4 +1,11 @@
 <?php
+/**
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
+
 namespace Swoole;
 
 /**
@@ -8,6 +15,8 @@ class Lock
 {
 
     /**
+	 * 构造函数
+	 *
      * @param int $type 为锁的类型
      * @param string $lockfile 当类型为SWOOLE_FILELOCK时必须传入，指定文件锁的路径
      * 注意每一种类型的锁支持的方法都不一样。如读写锁、文件锁可以支持 $lock->lock_read()。

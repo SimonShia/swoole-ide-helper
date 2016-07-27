@@ -1,8 +1,16 @@
 <?php
-
+/**
+ * swoole1.7.5提供了一个swoole_buffer类，让PHP开发者可以像C一样直接读写内存，提升程序的性能，又不用担心内存越界。swoole_buffer会检测offset。
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
+ */
 namespace Swoole;
+
 /**
  * Class swoole_buffer
+ * swoole1.7.5提供了一个swoole_buffer类，让PHP开发者可以像C一样直接读写内存，提升程序的性能，又不用担心内存越界。swoole_buffer会检测offset。
  *
  * 内存操作
  */
@@ -10,13 +18,30 @@ class Buffer
 {
 
     /**
+	 * 构造函数
+	 *
      * @param int $size
      */
     function __construct($size = 128)
     {
     }
 
-    /**
+	/**
+	 * 析构函数
+	 */
+    public function __destruct() {
+	}
+
+	/**
+	 * 序列化
+	 *
+	 * @return string
+	 */
+	public function __toString() {
+		return '';
+	}
+
+	/**
      * 将一个字符串数据追加到缓存区末尾
      *
      * @param string $data

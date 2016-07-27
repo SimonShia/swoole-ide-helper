@@ -1,25 +1,10 @@
 <?php
 /**
  * Swoole Develop Structure
- *
- * Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined 提示，便于快速查看函数用法。
- *
- * 本文件使用方式
- *
- * 普通IDE：
- * 开发Swoole项目同时，在IDE中打开/导入本文件即可。
- * 如果IDE自带 Include Path 功能(如：PhpStorm)，设置该文件路径即可。
- *
- * PhpStorm 另一种方法:
- * WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
- * 复制 swoole.php 到路径：com\jetbrains\php\lang\psi\stubs\data\
- * 保存文件，重启Phpstorm.
- *
- * PS:替换前请备份php.jar 若发生错误便于恢复 :)
- *
- * Author:EagleWu <eaglewudi@gmail.com>
- * Date: 2014/01/17
- *
+ * User: Simon sanwkj@163.com
+ * Author: EagleWu <eaglewudi@gmail.com>
+ * Date: 2016-07-27
+ * Time: 12:46
  */
 
 
@@ -310,30 +295,6 @@ function swoole_event_write($socket, $data)
 }
 
 /**
- * 获取MySQLi的socket文件描述符
- *
- * 可将mysql的socket增加到swoole中，执行异步MySQL查询。
- * 如果想要使用异步MySQL，需要在编译swoole时制定--enable-async-mysql
- * swoole_get_mysqli_sock仅支持mysqlnd驱动，php5.4以下版本不支持此特性
- *
- * @param mysqli $db
- * @return int
- */
-function swoole_get_mysqli_sock(\mysqli $db)
-{
-}
-
-/**
- * 异步执行SQL
- * @param $db
- * @param $sql
- */
-function swoole_mysql_query($db, $sql, $callback)
-{
-
-}
-
-/**
  * 投递异步任务到task_worker池中
  *
  * 此函数会立即返回，worker进程可以继续处理新的请求。
@@ -485,6 +446,14 @@ function swoole_timer_clear($timer_id)
  */
 function swoole_timer_tick($ms, $callback, $params = null)
 {
+
+}
+
+/**
+ * 判断定时器是否存在
+ * @param $timer_id
+ */
+function swoole_timer_exists($timer_id){
 
 }
 
@@ -644,74 +613,157 @@ function swoole_async_dns_lookup($domain, $callback)
  * @param array $write 可写
  * @param array $error 错误
  * @param float $timeout
+ * @return int
  */
-function swoole_client_select(array &$read, array &$write, array &$error, $timeout)
+function swoole_client_select(array &$read, array &$write, array &$error, $timeout=0.1)
 {
 }
 
+/**
+ * IO事件循环
+ *
+ * @param array $read 可读
+ * @param array $write 可写
+ * @param array $error 错误
+ * @param float $timeout
+ */
+function swoole_select(array &$read, array &$write, array &$error, $timeout=0.1)
+{
 
+}
+
+/**
+ * Class swoole_http_client
+ */
 class swoole_http_client extends Swoole\Http\Client
 {
 
 }
 
+/**
+ * Class swoole_http_request
+ */
 class swoole_http_request extends Swoole\Http\Request
 {
 
 }
 
+/**
+ * Class swoole_http_response
+ */
 class swoole_http_response extends Swoole\Http\Response
 {
 
 }
 
+/**
+ * Class swoole_http_server
+ */
 class swoole_http_server extends Swoole\Http\Server
 {
 
 }
 
+/**
+ * Class swoole_atomic
+ */
 class swoole_atomic extends Swoole\Atomic
 {
 
 }
 
+/**
+ * Class swoole_buffer
+ */
 class swoole_buffer extends Swoole\Buffer
 {
 
 }
 
+/**
+ * Class swoole_client
+ */
 class swoole_client extends Swoole\Client
 {
 
 }
 
+/**
+ * Class swoole_server
+ */
 class swoole_server extends Swoole\Server
 {
 
 }
 
+/**
+ * Class swoole_server_port
+ */
+class swoole_server_port extends \Swoole\Server\Port
+{
+
+}
+
+/**
+ * Class swoole_lock
+ */
 class swoole_lock extends Swoole\Lock
 {
 
 }
 
+/**
+ * Class swoole_redis
+ */
 class swoole_redis extends Swoole\Redis
 {
 
 }
 
+/**
+ * Class swoole_process
+ */
 class swoole_process extends Swoole\Process
 {
 
 }
 
+/**
+ * Class swoole_table
+ */
 class swoole_table extends Swoole\Table
 {
 
 }
 
+/**
+ * Class swoole_websocket_server
+ */
 class swoole_websocket_server extends Swoole\WebSocket\Server
 {
 
 }
 
+/**
+ * Class swoole_websocket_frame
+ */
+class swoole_websocket_frame extends Swoole\WebSocket\Frame
+{
+
+}
+
+/**
+ * Class swoole_mysql
+ */
+class swoole_mysql extends Swoole\MySQL
+{
+
+}
+
+/**
+ * Class swoole_mysql_exception
+ */
+class swoole_mysql_exception extends \Swoole\MySQL\Exception
+{
+
+}
