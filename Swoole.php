@@ -288,7 +288,7 @@ function swoole_event_exit() {
  * @param mixed  $socket
  * @param string $data
  */
-function swoole_event_write(mixed $socket, string $data){
+function swoole_event_write($socket, $data){
 
 }
 
@@ -767,7 +767,7 @@ class swoole_server
     function send($fd, $response, $from_id = 0) {
     }
 
-    function sendto(string $host, int $port, string $data) {
+    function sendto($host, $port, $data) {
     }
 
     /**
