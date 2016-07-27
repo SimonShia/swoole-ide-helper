@@ -1,0 +1,1697 @@
+Extension [ <persistent> extension #50 swoole version 1.8.1 ] {
+
+  - INI {
+    Entry [ swoole.aio_thread_num <ALL> ]
+      Current = '2'
+    }
+    Entry [ swoole.display_errors <ALL> ]
+      Current = 'On'
+    }
+    Entry [ swoole.use_namespace <SYSTEM> ]
+      Current = 'Off'
+    }
+    Entry [ swoole.message_queue_key <ALL> ]
+      Current = '0'
+    }
+    Entry [ swoole.unixsock_buffer_size <ALL> ]
+      Current = '8388608'
+    }
+  }
+
+  - Constants [45] {
+    Constant [ integer SWOOLE_BASE ] { 4 }
+    Constant [ integer SWOOLE_THREAD ] { 2 }
+    Constant [ integer SWOOLE_PROCESS ] { 3 }
+    Constant [ integer SWOOLE_PACKET ] { 16 }
+    Constant [ integer SWOOLE_IPC_UNSOCK ] { 1 }
+    Constant [ integer SWOOLE_IPC_MSGQUEUE ] { 2 }
+    Constant [ integer SWOOLE_IPC_CHANNEL ] { 3 }
+    Constant [ integer SWOOLE_SOCK_TCP ] { 1 }
+    Constant [ integer SWOOLE_SOCK_TCP6 ] { 3 }
+    Constant [ integer SWOOLE_SOCK_UDP ] { 2 }
+    Constant [ integer SWOOLE_SOCK_UDP6 ] { 4 }
+    Constant [ integer SWOOLE_SOCK_UNIX_DGRAM ] { 5 }
+    Constant [ integer SWOOLE_SOCK_UNIX_STREAM ] { 6 }
+    Constant [ integer SWOOLE_TCP ] { 1 }
+    Constant [ integer SWOOLE_TCP6 ] { 3 }
+    Constant [ integer SWOOLE_UDP ] { 2 }
+    Constant [ integer SWOOLE_UDP6 ] { 4 }
+    Constant [ integer SWOOLE_UNIX_DGRAM ] { 5 }
+    Constant [ integer SWOOLE_UNIX_STREAM ] { 6 }
+    Constant [ integer SWOOLE_SOCK_SYNC ] { 0 }
+    Constant [ integer SWOOLE_SOCK_ASYNC ] { 1 }
+    Constant [ integer SWOOLE_SYNC ] { 2048 }
+    Constant [ integer SWOOLE_ASYNC ] { 1024 }
+    Constant [ integer SWOOLE_KEEP ] { 4096 }
+    Constant [ integer SWOOLE_EVENT_READ ] { 512 }
+    Constant [ integer SWOOLE_EVENT_WRITE ] { 1024 }
+    Constant [ string SWOOLE_VERSION ] { 1.8.1 }
+    Constant [ integer SWOOLE_AIO_BASE ] { 0 }
+    Constant [ integer SWOOLE_AIO_GCC ] { 1 }
+    Constant [ integer SWOOLE_AIO_LINUX ] { 2 }
+    Constant [ integer SWOOLE_FILELOCK ] { 2 }
+    Constant [ integer SWOOLE_MUTEX ] { 3 }
+    Constant [ integer SWOOLE_SEM ] { 4 }
+    Constant [ integer SWOOLE_RWLOCK ] { 1 }
+    Constant [ integer SWOOLE_SPINLOCK ] { 5 }
+    Constant [ integer HTTP_GLOBAL_GET ] { 2 }
+    Constant [ integer HTTP_GLOBAL_POST ] { 4 }
+    Constant [ integer HTTP_GLOBAL_COOKIE ] { 8 }
+    Constant [ integer HTTP_GLOBAL_ALL ] { 126 }
+    Constant [ integer WEBSOCKET_OPCODE_TEXT ] { 1 }
+    Constant [ integer WEBSOCKET_OPCODE_BINARY ] { 2 }
+    Constant [ integer WEBSOCKET_STATUS_CONNECTION ] { 1 }
+    Constant [ integer WEBSOCKET_STATUS_HANDSHAKE ] { 2 }
+    Constant [ integer WEBSOCKET_STATUS_FRAME ] { 3 }
+    Constant [ integer WEBSOCKET_STATUS_ACTIVE ] { 3 }
+  }
+
+  - Functions {
+    Function [ <internal:swoole> function swoole_version ] {
+    }
+    Function [ <internal:swoole> function swoole_cpu_num ] {
+    }
+    Function [ <internal:swoole> function swoole_event_add ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> $fd ]
+        Parameter #1 [ <required> $cb ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_event_set ] {
+    }
+    Function [ <internal:swoole> function swoole_event_del ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $fd ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_event_exit ] {
+
+      - Parameters [0] {
+      }
+    }
+    Function [ <internal:swoole> function swoole_event_wait ] {
+
+      - Parameters [0] {
+      }
+    }
+    Function [ <internal:swoole> function swoole_event_write ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> $fd ]
+        Parameter #1 [ <required> $data ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_event_defer ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $callback ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_timer_after ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> $ms ]
+        Parameter #1 [ <required> $callback ]
+        Parameter #2 [ <optional> $param ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_timer_tick ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> $ms ]
+        Parameter #1 [ <required> $callback ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_timer_clear ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $timer_id ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_async_set ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $settings ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_async_read ] {
+
+      - Parameters [4] {
+        Parameter #0 [ <required> $filename ]
+        Parameter #1 [ <required> $callback ]
+        Parameter #2 [ <optional> $chunk_size ]
+        Parameter #3 [ <optional> $offset ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_async_write ] {
+
+      - Parameters [4] {
+        Parameter #0 [ <required> $filename ]
+        Parameter #1 [ <required> $content ]
+        Parameter #2 [ <optional> $offset ]
+        Parameter #3 [ <optional> $callback ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_async_readfile ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> $filename ]
+        Parameter #1 [ <required> $callback ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_async_writefile ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> $filename ]
+        Parameter #1 [ <required> $content ]
+        Parameter #2 [ <optional> $callback ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_async_dns_lookup ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> $domain_name ]
+        Parameter #1 [ <required> $content ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_client_select ] {
+
+      - Parameters [4] {
+        Parameter #0 [ <required> $read_array ]
+        Parameter #1 [ <required> $write_array ]
+        Parameter #2 [ <required> $error_array ]
+        Parameter #3 [ <optional> $timeout ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_set_process_name ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $process_name ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_get_local_ip ] {
+
+      - Parameters [0] {
+      }
+    }
+    Function [ <internal:swoole> function swoole_strerror ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $errno ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_errno ] {
+
+      - Parameters [0] {
+      }
+    }
+    Function [ <internal:swoole> function swoole_mysql_query ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> $db_link ]
+        Parameter #1 [ <required> $sql ]
+        Parameter #2 [ <required> $callback ]
+      }
+    }
+    Function [ <internal:swoole> function swoole_get_mysqli_sock ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> $db_link ]
+      }
+    }
+  }
+
+  - Classes [17] {
+    Class [ <internal:swoole> class swoole_server ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [31] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+
+          - Parameters [4] {
+            Parameter #0 [ <required> $serv_host ]
+            Parameter #1 [ <required> $serv_port ]
+            Parameter #2 [ <optional> $serv_mode ]
+            Parameter #3 [ <optional> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole> public method listen ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole> public method addlistener ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole> public method on ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $name ]
+            Parameter #1 [ <required> $cb ]
+          }
+        }
+
+        Method [ <internal:swoole> public method set ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $zset ]
+          }
+        }
+
+        Method [ <internal:swoole> public method start ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method send ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $send_data ]
+            Parameter #2 [ <optional> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method sendto ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ip ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <optional> $send_data ]
+          }
+        }
+
+        Method [ <internal:swoole> public method sendwait ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $send_data ]
+          }
+        }
+
+        Method [ <internal:swoole> public method exist ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $conn_fd ]
+          }
+        }
+
+        Method [ <internal:swoole> public method protect ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <optional> $is_protected ]
+          }
+        }
+
+        Method [ <internal:swoole> public method sendfile ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $filename ]
+          }
+        }
+
+        Method [ <internal:swoole> public method close ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $fd ]
+          }
+        }
+
+        Method [ <internal:swoole> public method task ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <required> $worker_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method taskwait ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <optional> $timeout ]
+            Parameter #2 [ <optional> $worker_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method finish ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $data ]
+          }
+        }
+
+        Method [ <internal:swoole> public method reload ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method shutdown ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method heartbeat ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method connection_info ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method connection_list ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $start_fd ]
+            Parameter #1 [ <required> $find_count ]
+          }
+        }
+
+        Method [ <internal:swoole> public method getClientInfo ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method getClientList ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $start_fd ]
+            Parameter #1 [ <required> $find_count ]
+          }
+        }
+
+        Method [ <internal:swoole> public method after ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+            Parameter #2 [ <optional> $param ]
+          }
+        }
+
+        Method [ <internal:swoole> public method tick ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole> public method clearTimer ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $timer_id ]
+          }
+        }
+
+        Method [ <internal:swoole> public method defer ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole> public method sendmessage ] {
+        }
+
+        Method [ <internal:swoole> public method addprocess ] {
+        }
+
+        Method [ <internal:swoole> public method stats ] {
+        }
+
+        Method [ <internal:swoole> public method bind ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $uid ]
+          }
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_timer ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [3] {
+        Method [ <internal:swoole> static public method tick ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+            Parameter #2 [ <optional> $param ]
+          }
+        }
+
+        Method [ <internal:swoole> static public method after ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole> static public method clear ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $timer_id ]
+          }
+        }
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [0] {
+      }
+    }
+
+    Class [ <internal:swoole> <iterateable> class swoole_connection_iterator implements Iterator, Traversable, Countable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [6] {
+        Method [ <internal:swoole, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_server_port ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [4] {
+        Method [ <internal:swoole, ctor> private method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method set ] {
+        }
+
+        Method [ <internal:swoole> public method on ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_client ] {
+
+      - Constants [4] {
+        Constant [ integer MSG_OOB ] { 1 }
+        Constant [ integer MSG_PEEK ] { 2 }
+        Constant [ integer MSG_DONTWAIT ] { 64 }
+        Constant [ integer MSG_WAITALL ] { 256 }
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [3] {
+        Property [ <default> public $errCode ]
+        Property [ <default> public $sock ]
+        Property [ <default> public $reuse ]
+      }
+
+      - Methods [15] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method set ] {
+        }
+
+        Method [ <internal:swoole> public method connect ] {
+        }
+
+        Method [ <internal:swoole> public method recv ] {
+        }
+
+        Method [ <internal:swoole> public method send ] {
+        }
+
+        Method [ <internal:swoole> public method sendfile ] {
+        }
+
+        Method [ <internal:swoole> public method sendto ] {
+        }
+
+        Method [ <internal:swoole> public method sleep ] {
+        }
+
+        Method [ <internal:swoole> public method wakeup ] {
+        }
+
+        Method [ <internal:swoole> public method isConnected ] {
+        }
+
+        Method [ <internal:swoole> public method getsockname ] {
+        }
+
+        Method [ <internal:swoole> public method getpeername ] {
+        }
+
+        Method [ <internal:swoole> public method close ] {
+        }
+
+        Method [ <internal:swoole> public method on ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_http_client ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [2] {
+        Property [ <default> public $errCode ]
+        Property [ <default> public $sock ]
+      }
+
+      - Methods [13] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method set ] {
+        }
+
+        Method [ <internal:swoole> public method setHeaders ] {
+        }
+
+        Method [ <internal:swoole> public method setData ] {
+        }
+
+        Method [ <internal:swoole> public method execute ] {
+        }
+
+        Method [ <internal:swoole> public method push ] {
+        }
+
+        Method [ <internal:swoole> public method get ] {
+        }
+
+        Method [ <internal:swoole> public method post ] {
+        }
+
+        Method [ <internal:swoole> public method upgrade ] {
+        }
+
+        Method [ <internal:swoole> public method isConnected ] {
+        }
+
+        Method [ <internal:swoole> public method close ] {
+        }
+
+        Method [ <internal:swoole> public method on ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_redis ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [6] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method on ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $event_name ]
+            Parameter #1 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole> public method connect ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole> public method close ] {
+        }
+
+        Method [ <internal:swoole> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $command ]
+            Parameter #1 [ <required> $params ]
+          }
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_process ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [5] {
+        Method [ <internal:swoole> static public method wait ] {
+        }
+
+        Method [ <internal:swoole> static public method signal ] {
+        }
+
+        Method [ <internal:swoole> static public method kill ] {
+        }
+
+        Method [ <internal:swoole> static public method daemon ] {
+        }
+
+        Method [ <internal:swoole> static public method setaffinity ] {
+        }
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [13] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method useQueue ] {
+        }
+
+        Method [ <internal:swoole> public method freeQueue ] {
+        }
+
+        Method [ <internal:swoole> public method start ] {
+        }
+
+        Method [ <internal:swoole> public method write ] {
+        }
+
+        Method [ <internal:swoole> public method close ] {
+        }
+
+        Method [ <internal:swoole> public method read ] {
+        }
+
+        Method [ <internal:swoole> public method push ] {
+        }
+
+        Method [ <internal:swoole> public method pop ] {
+        }
+
+        Method [ <internal:swoole> public method exit ] {
+        }
+
+        Method [ <internal:swoole> public method exec ] {
+        }
+
+        Method [ <internal:swoole> public method name ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> <iterateable> class swoole_table implements Iterator, Traversable, Countable ] {
+
+      - Constants [3] {
+        Constant [ integer TYPE_INT ] { 1 }
+        Constant [ integer TYPE_STRING ] { 7 }
+        Constant [ integer TYPE_FLOAT ] { 6 }
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [18] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $table_size ]
+          }
+        }
+
+        Method [ <internal:swoole> public method column ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $name ]
+            Parameter #1 [ <optional> $type ]
+            Parameter #2 [ <optional> $size ]
+          }
+        }
+
+        Method [ <internal:swoole> public method create ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method destroy ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $key ]
+            Parameter #1 [ <required> $value ]
+          }
+        }
+
+        Method [ <internal:swoole> public method get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $key ]
+          }
+        }
+
+        Method [ <internal:swoole, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method del ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $key ]
+          }
+        }
+
+        Method [ <internal:swoole> public method exist ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $key ]
+          }
+        }
+
+        Method [ <internal:swoole> public method incr ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $key ]
+            Parameter #1 [ <required> $column ]
+            Parameter #2 [ <optional> $incrby ]
+          }
+        }
+
+        Method [ <internal:swoole> public method decr ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $key ]
+            Parameter #1 [ <required> $column ]
+            Parameter #2 [ <optional> $decrby ]
+          }
+        }
+
+        Method [ <internal:swoole> public method lock ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole> public method unlock ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_lock ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [7] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method lock ] {
+        }
+
+        Method [ <internal:swoole> public method trylock ] {
+        }
+
+        Method [ <internal:swoole> public method lock_read ] {
+        }
+
+        Method [ <internal:swoole> public method trylock_read ] {
+        }
+
+        Method [ <internal:swoole> public method unlock ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_atomic ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [6] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole> public method add ] {
+        }
+
+        Method [ <internal:swoole> public method sub ] {
+        }
+
+        Method [ <internal:swoole> public method get ] {
+        }
+
+        Method [ <internal:swoole> public method set ] {
+        }
+
+        Method [ <internal:swoole> public method cmpset ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_http_server extends swoole_server ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [1] {
+        Property [ <default> private $global ]
+      }
+
+      - Methods [32] {
+        Method [ <internal:swoole, overwrites swoole_server, prototype swoole_server> public method on ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $ha_name ]
+            Parameter #1 [ <required> $cb ]
+          }
+        }
+
+        Method [ <internal:swoole> public method setglobal ] {
+        }
+
+        Method [ <internal:swoole, overwrites swoole_server, prototype swoole_server> public method start ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server, ctor> public method __construct ] {
+
+          - Parameters [4] {
+            Parameter #0 [ <required> $serv_host ]
+            Parameter #1 [ <required> $serv_port ]
+            Parameter #2 [ <optional> $serv_mode ]
+            Parameter #3 [ <optional> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method listen ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method addlistener ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method set ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $zset ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method send ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $send_data ]
+            Parameter #2 [ <optional> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendto ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ip ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <optional> $send_data ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendwait ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $send_data ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method exist ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $conn_fd ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method protect ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <optional> $is_protected ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendfile ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $filename ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method close ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $fd ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method task ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <required> $worker_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method taskwait ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <optional> $timeout ]
+            Parameter #2 [ <optional> $worker_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method finish ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $data ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method reload ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method shutdown ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method heartbeat ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method connection_info ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method connection_list ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $start_fd ]
+            Parameter #1 [ <required> $find_count ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method getClientInfo ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method getClientList ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $start_fd ]
+            Parameter #1 [ <required> $find_count ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method after ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+            Parameter #2 [ <optional> $param ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method tick ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method clearTimer ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $timer_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method defer ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendmessage ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method addprocess ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method stats ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method bind ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $uid ]
+          }
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_http_response ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [8] {
+        Method [ <internal:swoole> public method cookie ] {
+        }
+
+        Method [ <internal:swoole> public method rawcookie ] {
+        }
+
+        Method [ <internal:swoole> public method status ] {
+        }
+
+        Method [ <internal:swoole> public method gzip ] {
+        }
+
+        Method [ <internal:swoole> public method header ] {
+        }
+
+        Method [ <internal:swoole> public method write ] {
+        }
+
+        Method [ <internal:swoole> public method end ] {
+        }
+
+        Method [ <internal:swoole> public method sendfile ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_http_request ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [1] {
+        Method [ <internal:swoole> public method rawcontent ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_buffer ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [8] {
+        Method [ <internal:swoole, ctor> public method __construct ] {
+        }
+
+        Method [ <internal:swoole, dtor> public method __destruct ] {
+        }
+
+        Method [ <internal:swoole> public method substr ] {
+        }
+
+        Method [ <internal:swoole> public method write ] {
+        }
+
+        Method [ <internal:swoole> public method read ] {
+        }
+
+        Method [ <internal:swoole> public method append ] {
+        }
+
+        Method [ <internal:swoole> public method expand ] {
+        }
+
+        Method [ <internal:swoole> public method clear ] {
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_websocket_server extends swoole_http_server ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [2] {
+        Method [ <internal:swoole> static public method pack ] {
+
+          - Parameters [4] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <optional> $opcode ]
+            Parameter #2 [ <optional> $finish ]
+            Parameter #3 [ <optional> $mask ]
+          }
+        }
+
+        Method [ <internal:swoole> static public method unpack ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $data ]
+          }
+        }
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [33] {
+        Method [ <internal:swoole, overwrites swoole_http_server, prototype swoole_server> public method on ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $event_name ]
+            Parameter #1 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole> public method push ] {
+
+          - Parameters [4] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $data ]
+            Parameter #2 [ <optional> $opcode ]
+            Parameter #3 [ <optional> $finish ]
+          }
+        }
+
+        Method [ <internal:swoole, overwrites swoole_server, prototype swoole_server> public method exist ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $fd ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_http_server> public method setglobal ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_http_server, prototype swoole_server> public method start ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server, ctor> public method __construct ] {
+
+          - Parameters [4] {
+            Parameter #0 [ <required> $serv_host ]
+            Parameter #1 [ <required> $serv_port ]
+            Parameter #2 [ <optional> $serv_mode ]
+            Parameter #3 [ <optional> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method listen ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method addlistener ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $host ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <required> $sock_type ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method set ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $zset ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method send ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $send_data ]
+            Parameter #2 [ <optional> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendto ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ip ]
+            Parameter #1 [ <required> $port ]
+            Parameter #2 [ <optional> $send_data ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendwait ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $send_data ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method protect ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <optional> $is_protected ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendfile ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $conn_fd ]
+            Parameter #1 [ <required> $filename ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method close ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $fd ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method task ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <required> $worker_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method taskwait ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $data ]
+            Parameter #1 [ <optional> $timeout ]
+            Parameter #2 [ <optional> $worker_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method finish ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $data ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method reload ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method shutdown ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method heartbeat ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method connection_info ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method connection_list ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $start_fd ]
+            Parameter #1 [ <required> $find_count ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method getClientInfo ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $from_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method getClientList ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $start_fd ]
+            Parameter #1 [ <required> $find_count ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method after ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+            Parameter #2 [ <optional> $param ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method tick ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $ms ]
+            Parameter #1 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method clearTimer ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $timer_id ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method defer ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $callback ]
+          }
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method sendmessage ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method addprocess ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method stats ] {
+        }
+
+        Method [ <internal:swoole, inherits swoole_server> public method bind ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> $fd ]
+            Parameter #1 [ <required> $uid ]
+          }
+        }
+      }
+    }
+
+    Class [ <internal:swoole> class swoole_websocket_frame ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [0] {
+      }
+    }
+  }
+}
+
