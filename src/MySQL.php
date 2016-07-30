@@ -15,6 +15,67 @@ namespace Swoole{
 	{
 
 		/**
+		 * 是否已经连接
+		 *
+		 * @var bool
+		 */
+		public $connected;
+
+		/**
+		 * 错误码
+		 *
+		 * @var integer
+		 */
+		public $errno;
+
+		/**
+		 * 错误
+		 *
+		 * @var string
+		 */
+		public $error;
+
+		/**
+		 * 连接错误码
+		 *
+		 * @var integer
+		 */
+		public $connect_errno;
+
+		/**
+		 * 连接错误描述
+		 *
+		 * @var string
+		 */
+		public $connect_error;
+
+		/**
+		 * 插入方式的最后id
+		 *
+		 * @var integer
+		 */
+		public $insert_id;
+
+		/**
+		 * 影响函数
+		 *
+		 * @var integer
+		 */
+		public $affected_rows;
+
+		/**
+		 * 服务信息
+		 *
+		 * @var array of [user,password,host,database,port,charset]
+		 */
+		public $serverInfo;
+
+		/**
+		 * @var
+		 */
+		public $sock;
+
+		/**
 		 * MySQL constructor.
 		 */
 		public function __construct() {
@@ -41,6 +102,7 @@ namespace Swoole{
 		 * @param array    $serverConfig 为MySQL服务器的配置，必须为关联索引数组
 		 *
 		 * @param callable $callback 连接完成后回调此函数
+		 *                           
 		 */
 		public function connect( array $serverConfig, callable $callback ) {
 
@@ -51,7 +113,7 @@ namespace Swoole{
 		 *
 		 * @param string $sql 为要执行的SQL语句
 		 *
-		 *  function onSQLReady(\swoole_mysqli $link, mixed $result);
+		 *  function onSQLReady(\swoole_mysql $link, mixed $result);
 		 * 执行失败，$result为false，读取$link对象的error属性获得错误信息，errno属性获得错误码
 		 * 执行成功，SQL为非查询语句，$result为true，读取$link对象的affected_rows属性获得影响的行数，insert_id属性获得Insert操作的自增ID
 		 * 执行成功，SQL为查询语句，$result为结果数组
