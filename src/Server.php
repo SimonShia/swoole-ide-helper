@@ -7,6 +7,9 @@
  */
 
 namespace Swoole;
+
+use Swoole\Server\Port;
+
 /**
  * Class swoole_server
  *
@@ -15,6 +18,17 @@ namespace Swoole;
  */
 class Server
 {
+	public $host;
+	public $mode;
+	public $port;
+
+	
+	public $type;
+
+	/**
+	 * @var Port[]
+	 */
+	public $ports;
     /**
      * 当前服务器管理进程的Settings
      *
