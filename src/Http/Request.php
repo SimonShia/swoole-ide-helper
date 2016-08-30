@@ -37,6 +37,18 @@ class Request
 
 	/**
 	 * 服务器相关数据
+	 * array (
+	 * 		'request_method' => 'GET',
+	 * 		'request_uri' => '/banner/fetch',
+	 * 		'path_info' => '/banner/fetch',
+	 * 		'request_time' => 1472206492,
+	 * 		'request_time_float' => 1472206492.7587919,
+	 * 		'server_port' => 17777,
+	 * 		'remote_port' => 34284,
+	 * 		'remote_addr' => '172.30.248.218',
+	 * 		'server_protocol' => 'HTTP/1.1',
+	 * 		'server_software' => 'swoole-http-server',
+	 * )
 	 *
 	 * @var array
 	 */
