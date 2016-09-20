@@ -67,7 +67,7 @@ class Process
      * @param int $code
      * @return int
      */
-    function _exit($code = 0)
+    function exit($code = 0)
     {
     }
 
