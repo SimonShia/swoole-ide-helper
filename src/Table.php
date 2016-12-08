@@ -11,11 +11,11 @@ namespace Swoole;
 /**
  * 内存表
  */
-class Table
+class Table implements \Countable 
 {
     const TYPE_INT    = 1;
-    const TYPE_STRING = 2;
-    const TYPE_FLOAT  = 3;
+    const TYPE_STRING = 7;
+    const TYPE_FLOAT  = 6;
 
     /**
      * 获取key
@@ -84,6 +84,13 @@ class Table
     {
     }
 
+	/**
+	 * 销毁表
+	 */
+	function destroy(){
+
+	}
+
     /**
      * 锁定整个表
      * @return bool
@@ -99,4 +106,37 @@ class Table
     function unlock()
     {
     }
+
+	/**
+	 * @param $key
+	 *
+	 * @return bool
+	 */
+    function exist($key){
+		return true;
+	}
+
+	function count(){
+
+	}
+
+	function rewind(){
+
+	}
+
+	function next(){
+
+	}
+
+	function current(){
+
+	}
+
+	function key(){
+
+	}
+
+	function valid(){
+
+	}
 }

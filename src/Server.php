@@ -9,6 +9,7 @@
 namespace Swoole;
 
 use Swoole\Server\Port;
+use utils\caching\SwooleTableCache;
 
 /**
  * Class swoole_server
@@ -22,6 +23,8 @@ class Server
 	public $mode;
 	public $port;
 
+	/** @var  SwooleTableCache */
+	public $tableCache;
 	
 	public $type;
 

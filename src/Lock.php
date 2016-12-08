@@ -47,6 +47,7 @@ class Lock
      */
     public function trylock()
     {
+		return true;
     }
 
 
@@ -78,6 +79,7 @@ class Lock
      */
     public function trylock_read()
     {
+		return true;
     }
 }
 
